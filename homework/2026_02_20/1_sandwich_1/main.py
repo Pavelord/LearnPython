@@ -1,15 +1,38 @@
+import functools
+
 def bread(func):
-    pass
+    @functools.wraps(func)
+    def wrapper():
+        print("Bread")
+        func()
+        print("Bread")
+    return wrapper
 
 def salat(func):
-    pass
+    @functools.wraps(func)
+    def wrapper():
+        print("Salat")
+        func()
+    return wrapper
 
 def tomato(func):
-    pass
+    @functools.wraps(func)
+    def wrapper():
+        print("Tomato")
+        func()
+    return wrapper
 
 def meat(func):
-    pass
+    @functools.wraps(func)
+    def wrapper():
+        print("Meat")
+        func()
+    return wrapper
 
+@bread
+@salat
+@tomato
+@meat
 def make_sandwich():
     pass
 
